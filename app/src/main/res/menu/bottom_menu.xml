@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item
+    android:id="@+id/home"
+    android:icon="@drawable/btn_1"
+    android:title="Home"
+    app:cnb_backgroundColor="@color/red"
+    app:cnb_iconColor="@color/white"
+    />
+<item
+    android:id="@+id/favorites"
+    android:icon="@drawable/btn_2"
+    app:cnb_backgroundColor="@color/red"
+    app:cnb_iconColor="@color/white"
+    android:title="Favorites" />
+<item
+    android:id="@+id/cart"
+    android:icon="@drawable/btn_3"
+    app:cnb_backgroundColor="@color/red"
+    app:cnb_iconColor="@color/white"
+    android:title="Cart" />
+<item
+    android:id="@+id/profile"
+    android:icon="@drawable/btn_4"
+    app:cnb_backgroundColor="@color/red"
+    app:cnb_iconColor="@color/white"
+    android:title="Profile" />
+
+</menu>
