@@ -66,7 +66,12 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(ProfileActivity.this, MainActivity.class));
             } else if (id == R.id.cart) {
                 startActivity(new Intent(ProfileActivity.this, CartActivity.class));
-            } // No need to handle profile item again
+            } else if (id == R.id.orderHistory) {
+                startActivity(new Intent(ProfileActivity.this, OrdersHistoryActivity.class));
+            }
+            else if (id == R.id.profile) {
+                startActivity(new Intent(ProfileActivity.this, ProfileActivity.class));
+            }
 
         });
 
