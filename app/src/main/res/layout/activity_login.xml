@@ -12,8 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,19 +22,19 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10px"
-            android:layout_marginBottom="200px"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="50dp"
             android:gravity="center_horizontal"
             android:text="ĐĂNG NHẬP"
             android:textColor="@color/dark_blue"
@@ -86,6 +85,17 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/forgetPassTxt"
+            android:textColor="@color/redx2"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quên mật khẩu ?" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -102,7 +112,8 @@
                 android:text="Bạn chưa có tài khoản ?"
                 android:textColor="@color/redx2"
                 android:textSize="18dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/registerBtn"

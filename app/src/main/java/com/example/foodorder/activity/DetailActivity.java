@@ -1,6 +1,7 @@
 package com.example.foodorder.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +28,8 @@ public class DetailActivity extends HomeActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        
+
+
         getIntentExtra();
         setVariable();
     }

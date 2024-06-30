@@ -1,6 +1,7 @@
 package com.example.foodorder.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -136,29 +138,46 @@ public class MainActivity extends AppCompatActivity {
 
     private void setVariables() {
         bottomNavigationView = findViewById(R.id.bottomMenuUser);
+        // thiết lập mục được chọn mặc định
         bottomNavigationView.setItemSelected(R.id.home, true);
+        // xử lý sự kiện khi người dùng chọn mục khác nhau
         bottomNavigationView.setOnItemSelectedListener(id -> {
             if (id == R.id.home) {
                 startActivity(new Intent(MainActivity.this, MainActivity.class));
             } else if (id == R.id.cart) {
                 startActivity(new Intent(MainActivity.this, CartActivity.class));
+            } else if (id == R.id.profile) {
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
             }
         });
 
-        // Xử lý khi nhấn vào ImageView (đăng xuất)
-        binding.userImage.setOnClickListener(v -> {
-            if (binding.logoutLayout.getVisibility() == View.VISIBLE) {
-                binding.logoutLayout.setVisibility(View.GONE);
-            } else {
-                binding.logoutLayout.setVisibility(View.VISIBLE);
-            }
-        });
 
         // ẩn layout logout khi click vào nút close
-        binding.logoutButton.setOnClickListener(v -> {
-            logoutUser();
+        binding.logoutBtn.setOnClickListener(v -> {
+            showLogoutConfirmationDialog();
         });
     }
+    // Hiển thị thông báo xác nhận đăng xuất
+    private void showLogoutConfirmationDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Đăng xuất")
+                .setMessage("Bạn có chắc chắn muốn đăng xuất không?")
+                .setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Đăng xuất người dùng
+                        logoutUser();
+                    }
+                })
+                .setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Đóng thông báo
+                        dialog.dismiss();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+
 
     // đăng xuất người dùng
     private void logoutUser() {

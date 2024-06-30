@@ -34,27 +34,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/profile" />
 
-                <LinearLayout
-                    android:id="@+id/logoutLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:visibility="gone"
-                    android:layout_marginTop="24dp"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView3"
-                    app:layout_constraintStart_toEndOf="@+id/userImage"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/logoutButton"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/red_bg_full"
-                        android:text="Đăng xuất"
-
-                        android:textColor="@color/white" />
-                </LinearLayout>
-
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
@@ -76,16 +55,16 @@
                     app:layout_constraintStart_toEndOf="@+id/userImage" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/logoutBtn"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/bell" />
+                    app:srcCompat="@drawable/logout" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

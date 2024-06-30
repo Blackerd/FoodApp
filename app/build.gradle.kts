@@ -50,9 +50,13 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:21.0.1")
     implementation ("com.squareup.picasso:picasso:2.71828")
 
+    implementation ("org.mindrot:jbcrypt:0.4")
+    implementation ("com.github.mukeshsolanki:android-otpview-pinview:2.1.0")
+    implementation ("com.google.firebase:firebase-functions:19.0.2")
+
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
-
+    implementation ("com.android.volley:volley:1.2.1")
     implementation ("com.google.firebase:firebase-firestore:23.0.1")
 
 

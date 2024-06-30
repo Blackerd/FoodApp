@@ -16,6 +16,21 @@
         android:theme="@style/Theme.FoodOrder"
         tools:targetApi="31">
         <activity
+            android:name=".activity.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SetNewPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.VerifyOTPActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.OrderManagerActivity"
             android:exported="false" />
         <activity

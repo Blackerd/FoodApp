@@ -202,7 +202,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         pieChart.setDrawHoleEnabled(true); // Hiển thị lỗ ở giữa biểu đồ
         pieChart.setHoleColor(Color.WHITE); // Màu của lỗ ở giữa biểu đồ
         pieChart.setHoleRadius(30f); // Đặt bán kính của lỗ ở giữa biểu đồ
-        pieChart.setTransparentCircleRadius(30f); // Đường tròn trong suốt xung quanh lỗ
+        pieChart.setTransparentCircleRadius(50f); // Đường tròn trong suốt xung quanh lỗ
         pieChart.setEntryLabelTextSize(12f); // Kích thước chữ của các phần
         pieChart.setEntryLabelColor(Color.BLACK); // Màu chữ của các phần
 
