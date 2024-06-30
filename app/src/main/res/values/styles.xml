@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="EditTextStyle">
+        <item name="android:textColor">#3F2305</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13dp</item>
+    </style>
+
+    <style name="EditTextStyleSelect">
+        <item name="android:textColor">#3F2305</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+    <style name="EditShowItemName">
+        <item name="android:textColor">#3F2305</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">30dp</item>
+    </style>
+    <style name="EditHomeItemPrice">
+        <item name="android:textColor">#E213EA</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="EditHomeItemName">
+        <item name="android:textColor">#3F2305</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+    <style name="EditNameProduct">
+        <item name="android:textColor">#3F2305</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">40dp</item>
+    </style>
+    <style name="otherItem">
+        <item name="android:textColor">#3F2305</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:paddingLeft">40dp</item>
+    </style>
+    <style name="inforItem">
+        <item name="android:textColor">#3F2305</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+
+
+
+
+
+
+</resources>

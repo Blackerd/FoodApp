@@ -29,7 +29,6 @@ public class DetailActivity extends HomeActivity {
         binding = ActivityDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         getIntentExtra();
         setVariable();
     }

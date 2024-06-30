@@ -7,4 +7,11 @@
     <color name="yellow">#FFEFDA</color>
     <color name="dark_blue">#2E4058</color>
     <color name="blue">#050C9C</color>
+
+
+    <color name="backGround">#F2EAD3</color>
+    <color name="hilight_text">#3F2305</color>
+    <color name="btn">#08ABF6</color>
+    <color name="grey">#ababab</color>
+    <color name="btn_color">#1877F2</color>
 </resources>

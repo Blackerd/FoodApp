@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.foodorder.databinding.ActivityLoginBinding;
 import com.example.foodorder.domain.Users;
+import com.example.foodorder.model.GetOnDataListener;
+import com.example.foodorder.retrofit.admin.AdminServices;
+import com.example.foodorder.retrofit.user.UserServices;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -59,14 +62,36 @@ public class LoginActivity extends AppCompatActivity {
                                     Users users = userSnapshot.getValue(Users.class);
                                     if (users != null && BCrypt.checkpw(password, users.getPassword())) {
                                         Log.d(TAG, "User logged in: " + users.getId());
-
                                         saveUserInfo(users);
-
                                         if (users.isAdmin()) {
+                                            AdminServices adminServices = new AdminServices();
+                                            adminServices.login(users.getEmail(), users.getPassword(), new GetOnDataListener() {
+                                                @Override
+                                                public void onSuccess(Object o) {
+
+                                                }
+
+                                                @Override
+                                                public void onFailure(Object o) {
+
+                                                }
+                                            });
                                             Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                                             startActivity(intent);
                                             finish();
                                         } else {
+                                            UserServices userServices = new UserServices();
+                                            userServices.login(users.getEmail(), users.getPassword(), new GetOnDataListener() {
+                                                @Override
+                                                public void onSuccess(Object o) {
+
+                                                }
+
+                                                @Override
+                                                public void onFailure(Object o) {
+
+                                                }
+                                            });
                                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                             startActivity(intent);
                                             finish();

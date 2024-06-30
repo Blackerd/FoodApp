@@ -13,7 +13,6 @@ import com.example.foodorder.databinding.ActivityOrderBinding;
 import com.example.foodorder.domain.Foods;
 import com.example.foodorder.domain.Orders;
 import com.example.foodorder.helper.ManagmentCart;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
 
 import java.util.ArrayList;
@@ -32,7 +31,6 @@ public class OrderActivity extends AppCompatActivity {
 
         // Khởi tạo DatabaseReference để thao tác với dữ liệu trên Firebase Realtime Database
         ordersRef = FirebaseDatabase.getInstance().getReference("Orders");
-
         // Nhận dữ liệu từ CartActivity
         ArrayList<Foods> cartItems = (ArrayList<Foods>) getIntent().getSerializableExtra("cartItems");
         double totalAmount = getIntent().getDoubleExtra("totalAmount", 0.0);
@@ -45,9 +43,7 @@ public class OrderActivity extends AppCompatActivity {
         binding.totalFreeTxt.setText("$" + String.valueOf(itemTotal));
         binding.deliveryTxt.setText("$" + String.valueOf(deliveryFee));
         binding.taxTxt.setText("$" + String.valueOf(tax));
-
         binding.submitBtn.setOnClickListener(v -> placeOrder(cartItems, itemTotal, tax, deliveryFee, totalAmount));
-
         setVariable();
     }
 

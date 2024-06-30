@@ -1,0 +1,70 @@
+<!-- item_product.xml -->
+
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/bg_item_home"
+    >
+
+    <!-- Hình ảnh sản phẩm -->
+    <ImageView
+        android:id="@+id/imageProduct"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_vertical"
+         />
+
+    <!-- Thông tin sản phẩm -->
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp">
+
+        <!-- Tên sản phẩm -->
+        <TextView
+            android:textColor="@color/hilight_text"
+
+            android:id="@+id/textProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên sản phẩm"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Giá sản phẩm -->
+        <TextView
+            android:textColor="@color/hilight_text"
+            android:id="@+id/textProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giá sản phẩm"
+            android:textSize="14sp" />
+
+        <!-- Loại sản phẩm -->
+        <TextView
+            android:textColor="@color/hilight_text"
+            android:id="@+id/textProductType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loại sản phẩm"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Nút sản phẩm -->
+    <Button
+        android:backgroundTint="@color/backGround"
+        android:textColor="@color/hilight_text"
+        android:id="@+id/buttonProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="add to cart" />
+</LinearLayout>
