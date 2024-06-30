@@ -148,6 +148,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CartActivity.class));
             } else if (id == R.id.profile) {
                 startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            } else if (id == R.id.orderHistory) {
+                startActivity(new Intent(MainActivity.this, OrdersHistoryActivity.class));
             }
         });
 

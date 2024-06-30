@@ -88,6 +88,10 @@ public class CartActivity extends HomeActivity {
                 startActivity(new Intent(CartActivity.this, MainActivity.class));
             } else if (id == R.id.cart) {
                 startActivity(new Intent(CartActivity.this, CartActivity.class));
+            } else if (id == R.id.profile) {
+                startActivity(new Intent(CartActivity.this, ProfileActivity.class));
+            } else if (id == R.id.orderHistory) {
+                startActivity(new Intent(CartActivity.this, OrdersHistoryActivity.class));
             }
         });
     }

@@ -8,12 +8,12 @@
     app:cnb_backgroundColor="@color/red"
     app:cnb_iconColor="@color/white"
     />
-<item
-    android:id="@+id/favorites"
-    android:icon="@drawable/btn_2"
-    app:cnb_backgroundColor="@color/red"
-    app:cnb_iconColor="@color/white"
-    android:title="Favorites" />
+    <item
+        android:id="@+id/orderHistory"
+        android:icon="@drawable/btn_2"
+        android:title="History"
+        app:cnb_backgroundColor="@color/red"
+        app:cnb_iconColor="@color/white" />
 <item
     android:id="@+id/cart"
     android:icon="@drawable/btn_3"

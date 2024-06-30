@@ -41,8 +41,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (userId != -1 && !userEmail.isEmpty()) {
             // Update UI with user information
-            binding.textView21.setText(userName);
-            binding.textView22.setText(userEmail);
+            binding.userNameTxt.setText(userName);
+            binding.emailTxt.setText(userEmail);
 
             // Load profile image using Glide with the correct binding
             Glide.with(this)
