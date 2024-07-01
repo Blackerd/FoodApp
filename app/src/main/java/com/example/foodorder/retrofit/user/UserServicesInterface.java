@@ -1,6 +1,7 @@
 package com.example.foodorder.retrofit.user;
 
 
+import com.example.foodorder.domain.Orders;
 import com.example.foodorder.model.Food;
 import com.example.foodorder.model.User;
 
@@ -20,6 +21,6 @@ public interface UserServicesInterface {
     @POST("user/update")
     Call<Integer> update(@Body User user);
     @POST("user/order")
-    Call<Integer> order(@Body Map<String, Object> orders , @Query("id") String id , @Query("total") int total);
+    Call<Integer> order(@Body Orders orders , @Query("id") int id , @Query("total") int total);
 
 }

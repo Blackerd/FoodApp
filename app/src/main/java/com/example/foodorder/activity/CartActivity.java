@@ -75,7 +75,7 @@ public class CartActivity extends HomeActivity {
         recyclerView.setLayoutManager(layoutManager);
         binding.purchase.setOnClickListener(v -> {
             List<Food> itemChoosed = listPurchase.stream().filter(f -> f.quantity > 0).collect(Collectors.toList());
-            Intent intent = new Intent(CartActivity.this, PaymentActivity.class);
+            Intent intent = new Intent(CartActivity.this, OrderActivity.class);
             bundle.putSerializable("itemChooseds", (Serializable) itemChoosed);
             bundle.putInt("itemprice", totalPurchase);
             bundle.putInt("total", totalPurchase);

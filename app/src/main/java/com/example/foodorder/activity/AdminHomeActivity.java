@@ -90,7 +90,6 @@ public class AdminHomeActivity extends AppCompatActivity {
             showLogoutConfirmationDialog();
         });
     }
-
     // Hiển thị thông báo xác nhận đăng xuất
     private void showLogoutConfirmationDialog() {
         new AlertDialog.Builder(this)
@@ -111,7 +110,6 @@ public class AdminHomeActivity extends AppCompatActivity {
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
-
     // đăng xuất người dùng
     private void logoutUser() {
         FirebaseAuth.getInstance().signOut();

@@ -89,24 +89,23 @@ public class PaymentActivity extends AppCompatActivity {
         order.put("deliveryFee", 30);
         order.put("total", this.total);
         order.put("date",new Date());
-        UserServices userServices = new UserServices();
-        userServices.order(userId, this.total, order, new GetOnDataListener() {
-            @Override
-            public void onSuccess(Object o) {
-                Toast.makeText(PaymentActivity.this, "Đặt hàng thành công", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Object o) {
-
-            }
-        });
+//        UserServices userServices = new UserServices();
+//        userServices.order(userId, this.total, order, new GetOnDataListener() {
+//            @Override
+//            public void onSuccess(Object o) {
+//                Toast.makeText(PaymentActivity.this, "Đặt hàng thành công", Toast.LENGTH_SHORT).show();
+//                startActivity(new Intent(PaymentActivity.this, MainActivity.class));
+//            }
+//            @Override
+//            public void onFailure(Object o) {
+//            }
+//        });
 
 //         lưu thông tin đơn hàng vào database
-        databaseReference.push().setValue(order)
+            databaseReference.push().setValue(order)
                 .addOnSuccessListener(aVoid -> {
-                    startActivity(new Intent(PaymentActivity.this, MainActivity.class));
                 })
                 .addOnFailureListener(e -> Toast.makeText(PaymentActivity.this, "Đặt hàng thất bại", Toast.LENGTH_SHORT).show());
+
     }
 }

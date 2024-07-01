@@ -13,6 +13,9 @@ import com.example.foodorder.databinding.ActivityOrderBinding;
 import com.example.foodorder.domain.Foods;
 import com.example.foodorder.domain.Orders;
 import com.example.foodorder.helper.ManagmentCart;
+import com.example.foodorder.model.Food;
+import com.example.foodorder.model.GetOnDataListener;
+import com.example.foodorder.retrofit.user.UserServices;
 import com.google.firebase.database.*;
 
 import java.util.ArrayList;
@@ -22,6 +25,8 @@ import java.util.List;
 public class OrderActivity extends AppCompatActivity {
     ActivityOrderBinding binding;
     DatabaseReference ordersRef;
+    List<Food> listChooseds;
+    int total, itemsPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,19 +37,24 @@ public class OrderActivity extends AppCompatActivity {
         // Khởi tạo DatabaseReference để thao tác với dữ liệu trên Firebase Realtime Database
         ordersRef = FirebaseDatabase.getInstance().getReference("Orders");
         // Nhận dữ liệu từ CartActivity
+
+        Bundle bundle = getIntent().getBundleExtra("data");
+        this.listChooseds = (List<Food>) bundle.getSerializable("itemChooseds");
+        this.total = bundle.getInt("total");
+        this.itemsPrice = bundle.getInt("itemprice");
         ArrayList<Foods> cartItems = (ArrayList<Foods>) getIntent().getSerializableExtra("cartItems");
-        double totalAmount = getIntent().getDoubleExtra("totalAmount", 0.0);
-        double itemTotal = getIntent().getDoubleExtra("itemTotal", 0.0);
-        double deliveryFee = getIntent().getDoubleExtra("deliveryFee", 0.0);
-        double tax = getIntent().getDoubleExtra("tax", 0.0);
+        double totalAmount = itemsPrice;
+        double itemTotal = total;
+        double deliveryFee = getIntent().getDoubleExtra("deliveryFee", 30.0);
+        double tax = 0;
 
         // Hiển thị dữ liệu giỏ hàng
-        binding.totalTxt.setText("$" + String.valueOf(totalAmount));
-        binding.totalFreeTxt.setText("$" + String.valueOf(itemTotal));
-        binding.deliveryTxt.setText("$" + String.valueOf(deliveryFee));
-        binding.taxTxt.setText("$" + String.valueOf(tax));
+        binding.totalTxt.setText(  String.valueOf(totalAmount) +"000 VND");
+        binding.totalFreeTxt.setText(  String.valueOf(itemTotal) +"000 VND");
+        binding.deliveryTxt.setText( String.valueOf(deliveryFee)+ "00 VND");
+        binding.taxTxt.setText( String.valueOf(tax) + "VND");
         binding.submitBtn.setOnClickListener(v -> placeOrder(cartItems, itemTotal, tax, deliveryFee, totalAmount));
-        setVariable();
+            setVariable();
     }
 
     private void setVariable() {
@@ -80,16 +90,31 @@ public class OrderActivity extends AppCompatActivity {
 
                 // Tạo danh sách các món ăn trong đơn hàng
                 List<String> orderedItems = new ArrayList<>();
-                for (Foods item : cartItems) {
+                for (Food item : listChooseds) {
                     // Thêm tên và số lượng của mỗi món ăn vào danh sách đơn hàng
-                    String itemName = item.getTitle();
-                    int quantity = item.getNumberInCart();
+                    String itemName = item.getName();
+                    int quantity = item.quantity;
                     orderedItems.add(itemName + " x" + quantity);
                 }
+
+
 
                 // Tạo đối tượng đơn hàng với status mặc định là 0 (chờ xác nhận)
                 Orders order = new Orders(userName, (int) newOrderId, userId, orderedItems, itemTotal, tax, deliveryFee, totalAmount, address, new Date());
                 order.setStatus(Orders.STATUS_PENDING); // Đặt trạng thái mặc định là "Chờ xác nhận"
+
+
+                UserServices userServices = new UserServices();
+                userServices.order(userId,total, order, new GetOnDataListener() {
+                    @Override
+                    public void onSuccess(Object o) {
+                        startActivity(new Intent(OrderActivity.this, MainActivity.class));
+                    }
+                    @Override
+                    public void onFailure(Object o) {
+                    }
+                });
+
 
                 // Lưu đơn hàng vào Firebase Realtime Database
                 ordersRef.child(String.valueOf(newOrderId)).setValue(order, new DatabaseReference.CompletionListener() {

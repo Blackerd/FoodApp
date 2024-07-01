@@ -2,6 +2,7 @@ package com.example.foodorder.retrofit.user;
 
 import android.util.Log;
 
+import com.example.foodorder.domain.Orders;
 import com.example.foodorder.model.GetOnDataListener;
 import com.example.foodorder.model.Food;
 import com.example.foodorder.model.User;
@@ -78,7 +79,7 @@ public class UserServices {
         });
     }
 
-    public void order(String id, int total, Map<String, Object> listorder, GetOnDataListener onDataListener) {
+    public void order(int id, int total, Orders listorder, GetOnDataListener onDataListener) {
         this.userServicesInterface.order(listorder, id, total).enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> response) {
