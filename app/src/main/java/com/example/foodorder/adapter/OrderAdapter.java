@@ -64,6 +64,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                 // Trạng thái chờ xác nhận: hiển thị tất cả các nút
                 holder.acceptBtn.setVisibility(View.VISIBLE);
                 holder.cancelBtn.setVisibility(View.VISIBLE);
+                holder.updateStatusBtn.setVisibility(View.GONE);
                 break;
             case Orders.STATUS_CONFIRMED:
             case Orders.STATUS_DELIVERING:

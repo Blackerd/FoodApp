@@ -64,6 +64,18 @@ public class LoginActivity extends AppCompatActivity {
                                         Log.d(TAG, "User logged in: " + users.getId());
                                         saveUserInfo(users);
                                         if (users.isAdmin()) {
+                                            AdminServices adminServices = new AdminServices();
+                                            adminServices.login(users.getEmail(), users.getPassword(), new GetOnDataListener() {
+                                                @Override
+                                                public void onSuccess(Object o) {
+
+                                                }
+
+                                                @Override
+                                                public void onFailure(Object o) {
+
+                                                }
+                                            });
                                             Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                                             startActivity(intent);
                                             finish();

@@ -22,6 +22,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +57,10 @@ public class OrdersHistoryActivity extends AppCompatActivity {
             if (id == R.id.home) {
                 startActivity(new Intent(OrdersHistoryActivity.this, MainActivity.class));
             } else if (id == R.id.cart) {
-                startActivity(new Intent(OrdersHistoryActivity.this, CartActivity.class));
+                Intent intent = new Intent(OrdersHistoryActivity.this, CartActivity.class);
+                Bundle bundle = new Bundle();
+                intent.putExtra("bundle", bundle);
+                startActivity(intent);
             } else if (id == R.id.profile) {
                 startActivity(new Intent(OrdersHistoryActivity.this, ProfileActivity.class));
             } else if (id == R.id.orderHistory) {

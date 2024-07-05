@@ -45,7 +45,6 @@ public class CartActivity extends HomeActivity {
                 = getIntent().getBundleExtra("bundle");
         this.listPurchase = (List<Food>) bundle.getSerializable("listDataPurchase");
 //        checkIfEmpty();
-
         bagItemHolderRecycle = new BagItemHolderRecycle(this.listPurchase);
         bagItemHolderRecycle.setOnBTNClick(new BagItemHolderRecycle.OnBTNClick() {
             @Override

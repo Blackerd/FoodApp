@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.foodorder.databinding.ActivityRegisterBinding;
 import com.example.foodorder.domain.Users;
+import com.example.foodorder.model.GetOnDataListener;
+import com.example.foodorder.model.User;
+import com.example.foodorder.retrofit.user.UserServices;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -80,6 +83,19 @@ public class RegisterActivity extends AppCompatActivity {
 
             String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 
+            UserServices userServices = new UserServices();
+            userServices.signup(new User("",email,password,userName,email,""), new GetOnDataListener() {
+                @Override
+                public void onSuccess(Object o) {
+
+                }
+
+                @Override
+                public void onFailure(Object o) {
+
+                }
+            });
+
             auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
@@ -134,7 +150,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                     newId += 1;
-                }
+                }   
 
                 Users newUser = new Users();
                 newUser.setName(userName);

@@ -92,6 +92,8 @@
         android:layout_marginTop="16dp">
 
         <LinearLayout
+            android:paddingTop="10sp"
+            android:background="@drawable/white_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
